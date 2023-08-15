@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="styles/style2.css">
+</head>
+<body>
+    <div class="contact-form">
+        <h1>Contact Us</h1>
+        <form id="contactForm" action="https://formspree.io/f/xzbldljo" method="POST">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required minlength="5">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required minlength="5">
+            <label for="email">Email:</label>
+            <input type="email"name="_replyto" id="email" placeholder="Enter your Email ID" name="email" required>
+            <label for="date">Date:</label>
+            <input type="text" id="date" name="date" placeholder="(dd/mm/yy) (00,00,000) " required pattern="\d{2}\/\d{2}\/\d{4}">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your Phone Nummber (10 digits)" required pattern="\d{10}">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"  placeholder="wirte at least 50 characters" minlength="50"></textarea>
+            <button type="submit" id="btn" class="btn">Submit</button>
+            
+        </form>
+        <br>
+        <br>
+
+        <button onclick="goToHomePage()">Return to Home Page</button>
+    </div>
+
+    <script src="https://smtpjs.com/v3/smtp.js">
+
+    </script>
+
+
+<script>
+    function sendEmail(){
+        Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "himalbashyal7@gmail.com",
+    Password : "password",
+    To : 'himalbashyal77@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New Contact From Enquiry",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+    }
+
+
+
+
+ function validateForm() {
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var email = document.getElementById("email").value;
+    var date = document.getElementById("date").value;
+    var phone = document.getElementById("phone").value;
+    var message = document.getElementById("message").value;
+
+    if (firstName.length < 5) {
+        alert("First name should be at least 5 characters.");
+        return false;
+    }
+
+    if (lastName.length < 5) {
+        alert("Last name should be at least 5 characters.");
+        return false;
+    }
+
+    if (!email.includes("@")) {
+        alert("Email should contain the domain name (with '@').");
+        return false;
+    }
+
+    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(date)) {
+        alert("Date must have the appropriate format (dd/mm/yy).");
+        return false;
+    }
+
+    if (!/^\d{10}$/.test(phone)) {
+        alert("Phone must contain 10 digits.");
+        return false;
+    }
+
+    if (message.length < 50) {
+        alert("Message must be at least 50 alphabets.");
+        return false;
+    }
+
+  
+    return true;
+}
+
+    function goToHomePage() {
+            window.location.href = "index.html";
+        }
+
+
+</script>
+
+
+
+
+    </div>
+</body>
+</html>

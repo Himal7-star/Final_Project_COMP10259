@@ -1,0 +1,42 @@
+$color: yellow;
+$acolor: white;
+$bgcolor:red;
+@mixin dashed_border(){
+    border: 1px dashed black;
+}
+
+@mixin capital(){
+    text-transform: uppercase;
+}
+
+@mixin after_effect(){
+    content: "→"; 
+    margin-left: 5px; 
+    color: #ffffff; 
+    @include capital();
+}
+
+button{
+    background-color: $bgcolor;
+}
+
+nav ul li a {
+    color:$color;
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color:$acolor;
+} 
+
+.contact-form{
+    @include dashed_border();
+}
+
+#btn{
+    @include capital();
+}
+
+#btn::after{
+    @include after_effect();
+}

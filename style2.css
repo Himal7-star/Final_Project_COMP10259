@@ -1,0 +1,28 @@
+@charset "UTF-8";
+button {
+  background-color: red;
+}
+
+nav ul li a {
+  color: yellow;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: white;
+}
+
+.contact-form {
+  border: 1px dashed black;
+}
+
+#btn {
+  text-transform: uppercase;
+}
+
+#btn::after {
+  content: "→";
+  margin-left: 5px;
+  color: #ffffff;
+  text-transform: uppercase;
+}/*# sourceMappingURL=style2.css.map */
